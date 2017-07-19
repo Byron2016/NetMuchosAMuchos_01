@@ -1,0 +1,27 @@
+1.- Crear Proyecto
+	1.1.- New Project
+	1.2.- web - Nombre - MVC
+	
+2.- Sincronizar con git
+	2.1.- Botón derecho sobre solución y dar Add Git repositorio
+	2.2.- Ir a sinc y colocar el url del repositorio git
+	
+3.- Agregar Layout
+	3.1.- Agregar a Views carpeta "Shared"
+	3.2.- Agregar archivos "New Empty file": _Layout.cshtml y _ViewStart.cshtml
+	3.3.- Configurar _Layout.cshtml
+		3.3.1.- En body colocar: @RenderBody() 
+		3.3.2.- En el title colocar: @ViewBag.Title
+	3.4.- Configurar _ViewStart.cshtml
+		Agregar: 
+		@{
+			Layout = "~/Views/Shared/_Layout.cshtml";
+		}
+4.- Creación controlador Home
+	4.1.- Como en App_Start/RoutingCongig.cs tengo x default controlador Home creamos es.
+	4.2.- Sobre carpeta Controllers botón derecho add controller "MVC 5 Empty Controller"
+	4.3.- Colocar nombre HomeController
+	
+5.- Creación vista index para el HomeController
+	5.1.- Sobre el método "index" del controlador, presionar botón derecho add view.
+	5.2.- Colocar el título y el contenido h2.
