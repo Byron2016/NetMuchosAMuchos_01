@@ -25,3 +25,16 @@
 5.- Creación vista index para el HomeController
 	5.1.- Sobre el método "index" del controlador, presionar botón derecho add view.
 	5.2.- Colocar el título y el contenido h2.
+	
+6.- Agregar EntityFramework
+	6.1.- En el proyecto hacer: Add/New Proyect/Windows/Class Library
+	6.2.- Poner de nombre: Model
+	6.3.- Descargar el Entity Framework Tools: https://www.microsoft.com/en-us/download/details.aspx?id=40762
+	6.4._ Sobre el Model presionar botón derecho: Add/New Item/Data/ADO.Net Entity Data Model
+	6.5.- Dar nombre: TextContext (DBContext)
+	6.6.- Seleccionar el Modelo d contexto: "Code First from database"
+	6.7.- New Conexion y colocar el nombre del servidor/Tipo autenticación/Base de datos/Seleccionar tablas
+	6.8.- 
+	
+	
+	
