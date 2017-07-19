@@ -44,4 +44,14 @@
   </connectionStrings>
 	6.12.- Eliminar el app.config del Model (buena práctica)
 	
+7.- Bootstrap
+	7.1.- Bajar Bootstrap, descomprimir y a la carpeta ponerle de nombre Assets y colocarlo en el proyecto.
+	7.2.- Bajar jquery
+	7.3.- Poner ref a: 
+		<link href="~/Assets/css/bootstrap-theme.min.css" rel="stylesheet" />   
+		<link href="~/Assets/css/bootstrap.min.css" rel="stylesheet" />
+	7.4.- Poner ref a js: 
+		<script src="~/Assets/js/jquery.js"></script>   
+		<script src="~/Assets/js/bootstrap.min.js"></script>
+	7.5.- 
 	

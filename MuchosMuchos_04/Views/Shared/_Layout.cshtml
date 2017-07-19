@@ -4,8 +4,23 @@
     <title>@ViewBag.Title - Proyecto</title>
     <meta name="description" content="The description of my page" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/Assets/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    @RenderBody()
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Proyecto test</h1>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                @RenderBody()
+            </div>
+        </div>
+
+
+    </div>
+    <script src="~/Assets/js/jquery.js"></script>
+    <script src="~/Assets/js/bootstrap.min.js"></script>
 </body>
 </html>
