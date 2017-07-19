@@ -15,5 +15,16 @@ namespace MuchosMuchos_04.Controllers
         {
             return View(alumno.Listar());
         }
+
+
+        public ActionResult Crud(int id)
+        {
+            return View(alumno.Obtener(id));
+        }
+
+        public ActionResult Ver(int id)
+        {
+            return View(alumno.Obtener(id));
+        }
     }
 }

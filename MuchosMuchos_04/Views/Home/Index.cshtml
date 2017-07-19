@@ -8,8 +8,10 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Nombre</th>
+            <th style="width:100px;">Nombre</th>
             <th>Apellido</th>
+            <th style="width:200px;"></th>
+
         </tr>
     </thead>
     <tbody>
@@ -18,7 +20,19 @@
             <tr>
                 <td>@a.Nombre</td>
                 <td>@a.Apellido</td>
+                <td class="text-right">
+                    <a class="btn btn-default btn-success" href="~/Home/Ver/@a.Id" title="Visualizar">
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                    </a>
+                    <a class="btn btn-default" href="~/Home/Crud/@a.Id" title="Visualizar">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                    </a>
+                </td>
             </tr>
         }
+
     </tbody>
+
+
+
 </table>

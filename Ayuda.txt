@@ -1,3 +1,5 @@
+http://anexsoft.com/p/80/asp-net-mvc-creando-un-proyecto-desde-cero
+
 1.- Crear Proyecto
 	1.1.- New Project
 	1.2.- web - Nombre - MVC
@@ -53,5 +55,9 @@
 	7.4.- Poner ref a js: 
 		<script src="~/Assets/js/jquery.js"></script>   
 		<script src="~/Assets/js/bootstrap.min.js"></script>
-	7.5.- 
+	7.5.- Para íconos usar fonts awasome. pero también puede usarse bootstrap componests: http://getbootstrap.com/components/
+	
+	
+
+		
 	

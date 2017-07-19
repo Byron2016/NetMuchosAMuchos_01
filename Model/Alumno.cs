@@ -13,7 +13,8 @@ namespace Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Alumno()
         {
-            Curso = new HashSet<Curso>();
+            //Curso = new HashSet<Curso>();
+            Cursos = new List<Curso>();
         }
 
         public int Id { get; set; }
@@ -30,7 +31,9 @@ namespace Model
         public string Descripcion { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Curso> Curso { get; set; }
+        //public virtual ICollection<Curso> Curso { get; set; }
+
+        public ICollection<Curso> Cursos { get; set; }
 
         public List<Alumno> Listar()
         {
@@ -50,5 +53,30 @@ namespace Model
 
             return alumnos;
         }
+
+        public Alumno Obtener(int id)
+        {
+            var alumno = new Alumno();
+            try
+            {
+                using (var context = new TextContext())
+                {
+                    alumno = context.Alumno
+                                    .Include("Cursos")
+                                    .Where(x => x.Id == id)
+                                    .Single();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+            return alumno;
+        }
+
+
+
+
     }
 }

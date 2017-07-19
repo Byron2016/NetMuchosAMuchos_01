@@ -17,6 +17,7 @@ namespace Model
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            /*
             modelBuilder.Entity<Alumno>()
                 .Property(e => e.Nombre)
                 .IsUnicode(false);
@@ -24,15 +25,16 @@ namespace Model
             modelBuilder.Entity<Alumno>()
                 .Property(e => e.Apellido)
                 .IsUnicode(false);
-
+                */
             modelBuilder.Entity<Alumno>()
-                .HasMany(e => e.Curso)
+                .HasMany(e => e.Cursos)
                 .WithMany(e => e.Alumno)
                 .Map(m => m.ToTable("AlumnoCurso"));
-
+            /*
             modelBuilder.Entity<Curso>()
                 .Property(e => e.Nombre)
                 .IsUnicode(false);
+                */
         }
     }
 }
