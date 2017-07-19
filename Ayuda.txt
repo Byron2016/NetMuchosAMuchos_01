@@ -34,7 +34,14 @@
 	6.5.- Dar nombre: TextContext (DBContext)
 	6.6.- Seleccionar el Modelo d contexto: "Code First from database"
 	6.7.- New Conexion y colocar el nombre del servidor/Tipo autenticación/Base de datos/Seleccionar tablas
-	6.8.- 
-	
+	6.8.- En el Modelo Alumno.cs crear función List<Alumno> Listar()
+	6.9.- Agregar REFERENCIA al MODELO: Sobre el proyecto: Add/Reference seleccionar Project y marcar MODELO
+	6.10.- Agregar REFERENCIA a proyecto web de EntityFramework
+		6.10.1.- sobre el proyecto botón derecho: Add/Service Reference 
+	6.11.- Copiar en el Web.config del proyecto el string que está en el app.config del Model.
+  <connectionStrings>
+    <add name="TextContext" connectionString="data source=(localdb)\MSSQLLocalDB;initial catalog=Escuela;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework" providerName="System.Data.SqlClient" />
+  </connectionStrings>
+	6.12.- Eliminar el app.config del Model (buena práctica)
 	
 	

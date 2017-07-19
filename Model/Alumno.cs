@@ -5,6 +5,7 @@ namespace Model
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq; //este se añade para que el .toList no d error.
 
     [Table("Alumno")]
     public partial class Alumno
@@ -30,5 +31,24 @@ namespace Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Curso> Curso { get; set; }
+
+        public List<Alumno> Listar()
+        {
+            var alumnos = new List<Alumno>();
+            try
+            {
+                using (var context = new TextContext())
+                {
+                    alumnos = context.Alumno.ToList();
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+            return alumnos;
+        }
     }
 }

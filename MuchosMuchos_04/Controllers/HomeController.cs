@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,11 @@ namespace MuchosMuchos_04.Controllers
 {
     public class HomeController : Controller
     {
+        private Alumno alumno = new Alumno();
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            return View(alumno.Listar());
         }
     }
 }
