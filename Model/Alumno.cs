@@ -21,11 +21,11 @@ namespace Model
 
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Debe meter nombre")]
         [StringLength(50)]
         public string Nombre { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Debe meter apellido")]
         [StringLength(100)]
         public string Apellido { get; set; }
 

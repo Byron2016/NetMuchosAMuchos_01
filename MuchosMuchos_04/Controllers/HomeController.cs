@@ -42,8 +42,22 @@ namespace MuchosMuchos_04.Controllers
                 }
                     
             }
-            model.Guardar();
-            return Redirect("~/home/crud/" + model.Id);
+            else
+            {
+                ModelState.AddModelError("Cursos", "Debe seleccionar al menos un curso");
+                return View("~/views/home/crud.cshtml", model);
+            }
+            if (ModelState.IsValid)
+            {
+                model.Guardar();
+                return Redirect("~/home/crud/" + model.Id);
+            }
+            else
+            {
+                ViewBag.Cursos = curso.Todo();
+                return View("~/views/home/crud.cshtml",model);
+            }
+            
         }
     }
 }

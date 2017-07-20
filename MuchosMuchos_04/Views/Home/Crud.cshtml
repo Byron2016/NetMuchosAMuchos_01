@@ -18,11 +18,13 @@
             <div class="form-group">
                 @Html.LabelFor(x => x.Nombre)
                 @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Nombre, null, new { @class="label label-danger"})
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(x => x.Apellido)
                 @Html.TextBoxFor(x => x.Apellido, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Apellido, null, new { @class = "label label-danger" })
             </div>
         </div>
     </div>
@@ -48,9 +50,14 @@
                     </li>
                 }
             </ul>
+            @Html.ValidationMessage("Cursos", new { @class = "label label-danger" })
         </div>
     </div>
     <div class="text-right">
+        @if(Model.Id > 0)
+        {
+            <a href="~/home/eliminar/Model.Id" class="btn btn-danger">Eliminar</a>
+        }
         <button type="submit" class="btn btn-primary">Guardar</button>
     </div>
 }
