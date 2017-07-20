@@ -4,7 +4,9 @@ namespace Model
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity;
     using System.Data.Entity.Spatial;
+    using System.Data.SqlClient;
     using System.Linq; //este se añade para que el .toList no d error.
 
     [Table("Alumno")]
@@ -75,7 +77,45 @@ namespace Model
             return alumno;
         }
 
+        public void Guardar()
+        {
+            var alumno = new Alumno();
+            try
+            {
+                
+                using (var context = new TextContext())
+                {
+                    if (this.Id == 0)
+                    {
+                        context.Entry(this).State = EntityState.Added;
+                    }
+                    else
+                    {
+                        context.Database.ExecuteSqlCommand(
+                            "DELETE FROM AlumnoCurso WHERE Alumno_Id = @Id",
+                            new SqlParameter("Id", this.Id)
+                        );
 
+                        var cursoBK = this.Cursos;
+
+                        this.Cursos = null;
+                        context.Entry(this).State = EntityState.Modified;
+                        this.Cursos = cursoBK;
+                    }
+                    foreach (var c in this.Cursos)
+                    {
+                        context.Entry(c).State = EntityState.Unchanged; //min 17.35 insertando actualizando con relaciones
+                    }
+                        
+
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
 
 
     }

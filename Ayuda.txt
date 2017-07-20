@@ -58,6 +58,32 @@ http://anexsoft.com/p/80/asp-net-mvc-creando-un-proyecto-desde-cero
 	7.5.- Para íconos usar fonts awasome. pero también puede usarse bootstrap componests: http://getbootstrap.com/components/
 	
 	
+8.- Insersión Actualización Muchos a Muchos
+	8.1.- 
+	
+	
+	
+	
+	
+	
+https://es.stackoverflow.com/questions/5836/como-puedo-realizar-un-update-en-una-relaci%C3%B3n-muchos-a-muchos-entityframework-6
+http://ltuttini.blogspot.com/2013/07/entity-frameworkcode-first-asociacion_28.html
+http://panicoenlaxbox.blogspot.com/2014/04/eliminar-y-actualizar-eficientemente.html
+http://www.isawnavarro.com/entityframework-y-relaciones-muchos-a-muchos/
+
+http://www.isawnavarro.com/entityframework-y-relaciones-muchos-a-muchos/     /****** Aca da una muy buena alternativa aumentar columna en tabla intermedia****/
+https://www.codeproject.com/Articles/702890/MVC-Entity-Framework-and-Many-to-Many-Relation
+
+******************
+trbajar con EF
+*****************
+http://thescienceofcode.azurewebsites.net/Articles/Show/57ed8b7d79e39e54f0b64026
+
+******************
+LINQ to SQL
+*****************
+
+http://speakingin.net/2007/05/20/usando-linq-to-sql-1%C2%AA-parte/
 
 		
 	

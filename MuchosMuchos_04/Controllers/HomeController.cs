@@ -10,6 +10,8 @@ namespace MuchosMuchos_04.Controllers
     public class HomeController : Controller
     {
         private Alumno alumno = new Alumno();
+        private Curso curso = new Curso();
+
         // GET: Home
         public ActionResult Index()
         {
@@ -17,14 +19,31 @@ namespace MuchosMuchos_04.Controllers
         }
 
 
-        public ActionResult Crud(int id)
+        public ActionResult Ver(int id)
         {
             return View(alumno.Obtener(id));
         }
 
-        public ActionResult Ver(int id)
+        public ActionResult Crud(int id = 0)
         {
-            return View(alumno.Obtener(id));
+            ViewBag.Cursos = curso.Todo();
+            return View(
+                id > 0 ? alumno.Obtener(id)
+                       : alumno);
+
+        }
+        public ActionResult Guardar(Alumno model, int[] cursos = null)
+        {
+            if(cursos != null)
+            {
+                foreach (var c in cursos)
+                {
+                    model.Cursos.Add(new Curso { Id = c });
+                }
+                    
+            }
+            model.Guardar();
+            return Redirect("~/home/crud/" + model.Id);
         }
     }
 }
