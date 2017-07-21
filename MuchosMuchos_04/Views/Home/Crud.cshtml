@@ -5,7 +5,7 @@
     List<Model.Curso> cursos = ViewBag.Cursos;
 }
 <ol class="breadcrumb">
-    <li><a href="*/">Alumnos</a></li>
+    <li><a href="~/home">Alumnos</a></li>
     <li class="active">@(Model.Id > 0 ? Model.Nombre + " " + Model.Apellido : "Nuevo Registro")</li>
 </ol>
 
@@ -56,7 +56,7 @@
     <div class="text-right">
         @if(Model.Id > 0)
         {
-            <a href="~/home/eliminar/Model.Id" class="btn btn-danger">Eliminar</a>
+            <a onclick="return confirm('Esta seguro?');"   href="~/home/eliminar/@Model.Id" class="btn btn-danger">Eliminar</a>
         }
         <button type="submit" class="btn btn-primary">Guardar</button>
     </div>

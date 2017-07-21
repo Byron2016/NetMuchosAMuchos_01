@@ -32,6 +32,13 @@ namespace MuchosMuchos_04.Controllers
                        : alumno);
 
         }
+        public ActionResult Eliminar(int id)
+        {
+            alumno.Eliminar(id);
+            return Redirect("~/home");
+
+        }
+
         public ActionResult Guardar(Alumno model, int[] cursos = null)
         {
             if(cursos != null)
@@ -59,5 +66,6 @@ namespace MuchosMuchos_04.Controllers
             }
             
         }
+
     }
 }

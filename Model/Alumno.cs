@@ -77,12 +77,28 @@ namespace Model
             return alumno;
         }
 
+        public void Eliminar(int id)
+        {
+            try
+            {
+                using (var context = new TextContext())
+                {
+                    context.Entry(new Alumno { Id = id }).State = EntityState.Deleted;
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
         public void Guardar()
         {
             var alumno = new Alumno();
             try
             {
-                
+
                 using (var context = new TextContext())
                 {
                     if (this.Id == 0)
@@ -106,7 +122,7 @@ namespace Model
                     {
                         context.Entry(c).State = EntityState.Unchanged; //min 17.35 insertando actualizando con relaciones
                     }
-                        
+
 
                     context.SaveChanges();
                 }
@@ -116,7 +132,6 @@ namespace Model
                 throw new Exception(e.Message);
             }
         }
-
 
     }
 }

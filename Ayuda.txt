@@ -68,7 +68,9 @@ http://anexsoft.com/p/80/asp-net-mvc-creando-un-proyecto-desde-cero
 		9.1.2.- Puede poner null y despliega mensaje x default : @Html.ValidationMessageFor(x => x.Nombre, null, new { @class="label label-danger"})
 		9.1.3.- Puede poner el mensaje en la clase: [Required(ErrorMessage ="Debe meter nombre")]
 	
-	
+10.- Eliminacion
+	10.1.- POner las relaciones de eliminación en Cascada.
+	10.2.- context.Entry(new Alumno { Id = id }).State = EntityState.Deleted; / context.SaveChanges();
 	
 	
 	
