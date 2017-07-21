@@ -72,6 +72,14 @@ http://anexsoft.com/p/80/asp-net-mvc-creando-un-proyecto-desde-cero
 	10.1.- POner las relaciones de eliminación en Cascada.
 	10.2.- context.Entry(new Alumno { Id = id }).State = EntityState.Deleted; / context.SaveChanges();
 	
+11.- Validación con jquery
+	11.1.- Boton derecho sobre el proyecto ejecutar "Manage Nuget package" 
+	11.2.- Instalar "Microsoft.jquery.unobtrusive.Validation"
+	11.3.- Colocarlos en el layout.
+	11.4.- Instalar jquery Form desde google
+	11.5.- En el controlador crear una funcion JsonResult
+	11.6.- en el Modelo crear una public class ResponseModel  con tres propiedades: bool respuesta string redirict string error 
+	11.7.- Crear una funcion guardar con [HttpPost] //para que solo se pueda acceder desde post.
 	
 	
 https://es.stackoverflow.com/questions/5836/como-puedo-realizar-un-update-en-una-relaci%C3%B3n-muchos-a-muchos-entityframework-6

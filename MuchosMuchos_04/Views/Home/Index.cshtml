@@ -37,6 +37,9 @@
                 <td>@a.Nombre</td>
                 <td>@a.Apellido</td>
                 <td class="text-right">
+                    <a onclick="return confirm('Esta seguro?');" href="~/home/eliminar/@a.Id" title="Eliminar" class="btn btn-danger">
+                        <i class="glyphicon glyphicon-ban-circle"></i>
+                    </a>
                     <a class="btn btn-default btn-success" href="~/Home/Ver/@a.Id" title="Visualizar">
                         <i class="glyphicon glyphicon-eye-open"></i>
                     </a>

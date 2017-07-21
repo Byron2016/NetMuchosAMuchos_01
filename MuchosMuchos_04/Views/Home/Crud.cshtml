@@ -46,11 +46,11 @@
 
                     }
                     <li class="list-group-item">
-                        <label><input type="checkbox" @(tomado ? "checked" : "") name="cursos" value="@c.Id" />@c.Nombre</label>
+                        <label><input type="checkbox" @(tomado ? "checked" : "") name="cursos_seleccionados" value="@c.Id" />@c.Nombre</label>
                     </li>
                 }
             </ul>
-            @Html.ValidationMessage("Cursos", new { @class = "label label-danger" })
+            @Html.ValidationMessage("Cursos-elegidos", new { @class = "label label-danger", id="cursos-validacion" })
         </div>
     </div>
     <div class="text-right">
@@ -60,4 +60,34 @@
         }
         <button type="submit" class="btn btn-primary">Guardar</button>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#frm-alumno").submit(function () {
+                var form = $(this);
+
+                if (form.validate()) {
+                    form.ajaxSubmit({
+                        dataType: 'JSON',
+                        type: 'POST',
+                        url: form.attr('action'),
+                        success: function (r) {
+                            if (r.respuesta) {
+                                window.location.href = r.redirect;
+                            }
+                            else {
+                                $("#cursos-validacion").text(r.error)
+                                                        .show();
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            alert(errorThrown);
+                        }
+                    });
+                }
+
+                return false; //caso contrario hace postback
+            })
+        })
+    </script>
 }

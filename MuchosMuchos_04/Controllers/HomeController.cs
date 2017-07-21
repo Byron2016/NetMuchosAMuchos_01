@@ -39,6 +39,7 @@ namespace MuchosMuchos_04.Controllers
 
         }
 
+        /*
         public ActionResult Guardar(Alumno model, int[] cursos = null)
         {
             if(cursos != null)
@@ -51,7 +52,7 @@ namespace MuchosMuchos_04.Controllers
             }
             else
             {
-                ModelState.AddModelError("Cursos", "Debe seleccionar al menos un curso");
+                ModelState.AddModelError("Cursos-elegidos", "Debe seleccionar al menos un curso");
                 return View("~/views/home/crud.cshtml", model);
             }
             if (ModelState.IsValid)
@@ -66,6 +67,37 @@ namespace MuchosMuchos_04.Controllers
             }
             
         }
+        */
 
+        [HttpPost] //para que solo se pueda acceder desde post.
+        public JsonResult Guardar(Alumno model, int[] cursos_seleccionados = null)
+        {
+            var respuesta = new ResponseModel
+            {
+                respuesta = true,
+                redirict = "/home/crud/" + model.Id,
+                error = ""
+            };
+            if (cursos_seleccionados != null)
+            {
+                foreach (var c in cursos_seleccionados)
+                {
+                    model.Cursos.Add(new Curso { Id = c });
+                }
+
+            }
+            else
+            {
+                ModelState.AddModelError("Cursos-elegidos", "Debe seleccionar al menos un curso");
+                respuesta.respuesta = false;
+                respuesta.error = "Debe seleccionar al menos un curso";
+            }
+            if (ModelState.IsValid)
+            {
+                model.Guardar();
+            }
+            return Json(respuesta);
+
+        }
     }
 }
